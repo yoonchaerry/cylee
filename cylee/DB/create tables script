@@ -1,0 +1,49 @@
+CREATE TABLE TSpread(
+	SpreadSeqNo bigint identity(1,1) primary key,
+	UserId varchar(50) not null,
+	RoomId varchar(50) not null,
+	SpreadAmt int not null,
+	SpreadCnt int not null,
+	Token varchar(3) not null,
+	RegDate Date not null,
+	UpdDate Date null
+)
+
+CREATE TABLE TSpreadToken(
+	TokenSeqNo bigint identity(1,1) primary key,
+	Token varchar(3) not null,
+	SpreadSeqNo bigint not null,
+	SpreadAmt int not null,
+	Status bit not null,
+	RegDate Date not null,
+	UpdDate Date null
+)
+
+CREATE TABLE TSpreadCatch(
+	SCSeqNo bigint identity(1,1) primary key,
+	SpreadSeqNo bigint not null,
+	TokenSeqNo bigint not null,
+	UserId varchar(50) not null,
+	RegDate Date not null,
+	UpdDate Date null
+)
+
+CREATE TABLE TUser(
+	UserSeqNo bigint identity(1,1) primary key,
+	UserId varchar(50) not null,
+	RegDate date not null,
+	UpdDate date null
+)
+
+CREATE TABLE TUserAcct(
+	UserSeqNo bigint,
+	TotalAmt money,
+)
+
+CREATE TABLE TUserAcctLog(
+	AcctLogSeqNo bigint identity(1,1) primary key,
+	UserSeqNo bigint not null,
+	TransferType tinyint not null,
+	TransferAmt money not null,
+	RegDate date
+)
