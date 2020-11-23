@@ -21,7 +21,7 @@ public class SpreadService {
 		String strToken = null;
 		ResponseSpreadMoney response = new ResponseSpreadMoney();
 		List<Integer> list = new ArrayList<>();
-		//헤더의 사용자아이디, 채팅방 확인 
+		//[DB]헤더의 사용자아이디, 채팅방 확인 
 		//토큰 생성
 		common = new CommonModule();
 		strToken = common.getToken();
@@ -38,12 +38,15 @@ public class SpreadService {
 		ResponseCatchMoney response = new ResponseCatchMoney();
 		//[DB]유효한 토큰인지 확인 
 		//[DB]토큰 정보 가져오기 
+		//[DB]뿌린 돈 줍기 프로세스 
 		
 		return response;
 	}
 	
 	public ResponseGetMoneyInfo GetMoneyInfo(RequestGetMoneyInfo getMoneyInfo, String userId, String roomId) {
 		ResponseGetMoneyInfo response = new ResponseGetMoneyInfo();
+		//[DB]유효한 토큰인지 확인 
+		//[DB]뿌린내역 조회 
 		
 		return response;
 	}
